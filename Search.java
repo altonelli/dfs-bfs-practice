@@ -35,7 +35,19 @@ public class Search {
         graph.add(node6);
 
 
-        // System.out.println(node5.neighborsToString());
+/*
+
+  This is a visual depiction of the graph
+
+            (1) -- (2)
+           / |      | \
+        (0)  |      |  (3)
+           \ |      | /
+            (5) -- (4)
+
+                      (6)
+
+*/
 
         // Compare DFS Success
         boolean DFSRecursiveSuccess = DFSRecursive.dfs(node0, node4);
