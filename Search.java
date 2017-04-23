@@ -9,6 +9,15 @@ public class Search {
         }
     }
 
+    private static void printPathList (ArrayList<ArrayList<Node>> paths) {
+        for (ArrayList<Node> path : paths) {
+            for (Node node : path) {
+                System.out.print(node.getLabel());
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         Node node0 = new Node("0");
         Node node1 = new Node("1");
@@ -24,7 +33,7 @@ public class Search {
         node2.addNeighbors(new Node[]{node1, node3, node4});
         node3.addNeighbors(new Node[]{node2, node4});
         node4.addNeighbors(new Node[]{node2, node3, node5});
-        node5.addNeighbors(new Node[]{node0, node1, node5});
+        node5.addNeighbors(new Node[]{node0, node1, node4});
 
         graph.add(node0);
         graph.add(node1);
@@ -83,6 +92,10 @@ public class Search {
 
         boolean BFSIterativeFailure = BFSIterative.bfs(node0, node6);
         System.out.println(BFSIterativeFailure);
+        resetNodes();
+
+        ArrayList<ArrayList<Node>> paths = DFSRecursive.dfsAllPaths(node0, node4);
+        printPathList(paths);
         resetNodes();
     }
 }
